@@ -20,7 +20,7 @@ def get_gemini_response(input, image):
 
 st.set_page_config(page_title="Gemini image demo")
 
-st.header("Gemini Application")
+st.header("Praveen GENAI Application")
 
 input=st.text_input("Input Prompt: ", key="input")
 
