@@ -1,0 +1,13 @@
+prefix=E:/2_Data Science/GENAI/Projects/GENAI Udemy Krish/venv/Library
+exec_prefix=E:/2_Data Science/GENAI/Projects/GENAI Udemy Krish/venv/Library
+libdir=E:/2_Data Science/GENAI/Projects/GENAI Udemy Krish/venv/Library/lib
+sharedlibdir=E:/2_Data Science/GENAI/Projects/GENAI Udemy Krish/venv/Library/lib
+includedir=E:/2_Data Science/GENAI/Projects/GENAI Udemy Krish/venv/Library/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
