@@ -27,9 +27,9 @@ input=st.text_input("Input Prompt: ", key="input")
 submit_text=st.button("Tell me answer")
 
 if submit_text:
-    response= app.get_gemini_response(input)
-    st.subheader("The response is ")
-    st.write(response)
+    response_text= app.get_gemini_response(input)
+    st.subheader("The text question response is ")
+    st.write(response_text)
 
 
 
@@ -42,6 +42,6 @@ if uploaded_file is not None:
 submit_image=st.button("Tell me about image")
 
 if submit_image:
-    response=get_gemini_response(input, image)
-    st.subheader("The Response is")
-    st.write(response)
+    response_image=get_gemini_response(input, image)
+    st.subheader("The Image Response is")
+    st.write(response_image)
