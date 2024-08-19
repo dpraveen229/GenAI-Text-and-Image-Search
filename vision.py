@@ -2,7 +2,7 @@ import streamlit as st
 import os
 import google.generativeai as genai
 from PIL import Image
-import app
+from app import get_gemini_response as appresponse
 
 # 1. Configuration
 # 2. Get Model
@@ -27,7 +27,7 @@ input=st.text_input("Input Prompt: ", key="input")
 submit_text=st.button("Tell me answer")
 
 if submit_text:
-    response_text= app.get_gemini_response(input)
+    response_text= appresponse.get_gemini_response(input)
     st.subheader("The text question response is ")
     st.write(response_text)
 
