@@ -3,10 +3,13 @@ import os
 import google.generativeai as genai
 from PIL import Image
 
+
 # 1. Configuration
 # 2. Get Model
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+
+
 
 model= genai.GenerativeModel("gemini-1.5-flash")
 def get_gemini_response_image(image):
@@ -27,6 +30,7 @@ st.header("Praveen GENAI Application")
 
 input=st.text_input("Input Prompt: ", key="input")
 submit_text=st.button("Tell me answer")
+from style import set_background_color, colored_text
 
 if submit_text:
     response_text= get_gemini_response_text(input)
@@ -47,3 +51,6 @@ if submit_image:
     response_image=get_gemini_response_image(image)
     st.subheader("The Image Response is")
     st.write(response_image)
+
+# Define the CSS style for background color
+set_background_color('lightblue')
