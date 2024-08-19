@@ -2,7 +2,6 @@ import streamlit as st
 import os
 import google.generativeai as genai
 from PIL import Image
-from app import get_gemini_response as appresponse
 
 # 1. Configuration
 # 2. Get Model
@@ -10,13 +9,16 @@ from app import get_gemini_response as appresponse
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 model= genai.GenerativeModel("gemini-1.5-flash")
-def get_gemini_response(input, image):
+def get_gemini_response_image(image):
     if input!="":
-        response=model.generate_content([input,image])
+        response=model.generate_content([image])
     else:
         response=model.generate_content(image)
     return response.text
 
+def get_gemini_response_text(question):
+    response=model.generate_content(question)
+    return response.text
 # initialize our streamlit app
 
 st.set_page_config(page_title="Gemini image demo")
@@ -27,7 +29,7 @@ input=st.text_input("Input Prompt: ", key="input")
 submit_text=st.button("Tell me answer")
 
 if submit_text:
-    response_text= appresponse.get_gemini_response(input)
+    response_text= get_gemini_response_text(input)
     st.subheader("The text question response is ")
     st.write(response_text)
 
@@ -42,6 +44,6 @@ if uploaded_file is not None:
 submit_image=st.button("Tell me about image")
 
 if submit_image:
-    response_image=get_gemini_response(input, image)
+    response_image=get_gemini_response_image(image)
     st.subheader("The Image Response is")
     st.write(response_image)
