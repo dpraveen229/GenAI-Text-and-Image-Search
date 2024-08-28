@@ -2,6 +2,7 @@ import streamlit as st
 import os
 import google.generativeai as genai
 from PIL import Image
+from style import set_background_color, colored_text
 
 
 # 1. Configuration
@@ -30,7 +31,7 @@ st.header("Praveen GENAI Application")
 
 input=st.text_input("Input Prompt: ", key="input")
 submit_text=st.button("Tell me answer")
-from style import set_background_color, colored_text
+
 
 if submit_text:
     response_text= get_gemini_response_text(input)
